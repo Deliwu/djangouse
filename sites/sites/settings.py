@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['192.168.40.52',]
 # Application definition
 
 INSTALLED_APPS = [
+    'polla.apps.PollaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
