@@ -6,8 +6,8 @@ from .models import Qustion
 # Create your views here.
 def index(request):
     latest_question_list = Qustion.objects.order_by('-pub_date')[:5]
-    output = ','.join([question.question_text for question in latest_question_list])
-    return HttpResponse(output)
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polla/index.html', context)
 
 
 def detail(request, question_id):
