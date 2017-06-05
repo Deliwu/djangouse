@@ -2,6 +2,8 @@ from django.conf.urls import url
 from . import views
 
 
+app_name = 'polla'
+
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail'),
