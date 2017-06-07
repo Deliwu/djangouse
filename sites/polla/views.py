@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from .models import Qustion, Choice
 from django.core.urlresolvers import reverse
 from django.template import loader
+from django.views.decorators.http import require_http_methods, require_safe
+from django.views.decorators.gzip import gzip_page
+from django.views.decorators.cache import never_cache
 
 
 # Create your views here.
@@ -12,6 +15,7 @@ def index(request):
     return render(request, 'polla/index.html', context)
 
 
+@never_cache
 def detail(request, question_id):
     question = get_object_or_404(Qustion, id=question_id)
     print(request.GET)
@@ -41,3 +45,6 @@ def vote(request, question_id):
             return HttpResponseRedirect(reverse('polla:results', args=(question.id,)))
     else:
         return HttpResponse('Your post question_id: %s' % question.id)
+
+def polla_404_handler(request):
+    return HttpResponseNotFound("Not found", status=404)

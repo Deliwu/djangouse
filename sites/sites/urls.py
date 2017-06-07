@@ -24,6 +24,7 @@ def index(request):
 def hello(request):
     return HttpResponse('<h1>Hello World!</h1>')
 
+handler404 = 'polla.views.polla_404_handler'
 
 urlpatterns = [
     url(r'^$', index),
