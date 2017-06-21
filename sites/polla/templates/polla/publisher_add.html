@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load bootstrap %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.name|bootstrap_horizontal }}
+    <dir>
+        <input type="submit" value="Submit">
+    </dir>
+</form>
+</body>
+</html>
