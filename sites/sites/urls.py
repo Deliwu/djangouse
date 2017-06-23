@@ -31,5 +31,5 @@ urlpatterns = [
     url(r'hello/$', hello),
     url(r'polla/', include('polla.urls')),
     url(r'days/', include('days.urls')),
-    url(r'^admin/', admin.site.urls),
+#    url(r'^admin/', admin.site.urls),
 ]

@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['192.168.40.52',]
 
 INSTALLED_APPS = [
     'bootstrapform',
-    'books.apps.BooksConfig',
     'days.apps.DaysConfig',
     'polla.apps.PollaConfig',
     'django.contrib.admin',
