@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class AutherManager(models.Manager):
+    def get_queryset(self):
+        return super(AutherManager, self).get_queryset().filter(name__startswith='A')
+
+
+class EditorManager(models.Manager):
+    def get_queryset(self):
+        return super(EditorManager, self).get_queryset().filter(name__startswith='B')
+
+
 # Create your models here.
 class Blog(models.Model):
     name = models.CharField(max_length=100)
@@ -13,6 +23,9 @@ class Blog(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
+    people = models.Manager()
+    authors = AutherManager()
+    editors = EditorManager()
 
     def __str__(self):
         return self.name
